@@ -2,8 +2,12 @@ import os
 import argparse
 import pandas as pd
 import joblib
+import logging
 from sklearn.linear_model import ElasticNet
 from src.utils.common_utils import read_params, clean_prev_dirs_if_exists, create_dir, save_reports
+
+logging_str = "[%(asctime)s: %(levelname)s: %(module)s]: %(message)s"
+logging.basicConfig(level=logging.DEBUG, format=logging_str)
 
 def train(config_path):
     config = read_params(config_path)
@@ -52,7 +56,7 @@ def train(config_path):
 
     joblib.dump(lr, model_path)
 
-
+    logging.info(f"model is saved at {model_path}")
     
 
 
@@ -67,5 +71,6 @@ if __name__=='__main__':
 
     try:
         data = train(config_path=parsed_args.config)
+        logging.info("train stage is completed")
     except Exception as e:
-        raise e
+        logging.error(e)
