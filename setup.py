@@ -12,9 +12,11 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Rohitp2020/simple-dvc-project.git",
     author_email="rohitpunetha2001@gmail.com",
-    package_dir={"":"src"},
-    packages=find_packages(where="src"),licence="GNU",
+    # package_dir={"":"src"},
+    # packages=find_packages(where="src"),licence="GNU",
     python_requires=">=3.6",
+    packages=["src"],
+    licence="GNU",
     install_requires=[
         'dvc',
         'dvc[gdrive]',
