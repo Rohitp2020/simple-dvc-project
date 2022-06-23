@@ -24,3 +24,8 @@ stages:
     outs:
       - artifacts/processed_data/train.csv
       - artifacts/processed_data/test.csv
+
+  train_data:
+    cmd: python src/stage_03_train.py --config=params.yaml
+    deps:
+      - src/stage_03_train.py
