@@ -30,5 +30,5 @@ artifacts:
 estimators:
   ElasticNet:
     params:
-      alpha: 0.9
-      l1_ratio: 0.4
+      alpha: 0.7
+      l1_ratio: 0.2
